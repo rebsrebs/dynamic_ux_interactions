@@ -76,21 +76,16 @@ window.onload = () => {
   createImages();
   createDots();
   showImage(0);
-  // cycleImages();
+  setInterval(cycleImages, 3000)
 };
 
 
-
-// TIME OUT
-
 function cycleImages() {
-  for (let i = 0; i < imagesArray.length; i++) {
-    setTimeout(() => {showImage(currentImage);}, 3000);
-    currentImage = currentImage + 1;
-    if (currentImage === imagesArray.length) {
-      currentImage = 0;
-    }
+  if (currentImage === imagesArray.length) {
+    currentImage = 0;
   }
+  showImage(currentImage);
+  currentImage += 1;
 }
 
 // RIGHT ARROW

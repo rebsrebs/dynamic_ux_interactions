@@ -120,7 +120,7 @@ h1 {
 
 .hidden {
   opacity: 0;
-  transition:opacity .4s;  
+  transition:opacity .5s;  
 }
 
 img {
