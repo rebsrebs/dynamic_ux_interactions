@@ -11,19 +11,35 @@ let imagesArray = [radishes, apple, peppers, beans];
 let currentImage = 0;
 
 // FUNCTION TO SHOW IMAGE IN CONTAINER
-function displayImage(num) {
-  // create image
-  let newImage = document.createElement('img');
-  newImage.src = imagesArray[num];
-  newImage.style.width = "200px";
-
-  // clear image container
-  while (imageContainer.firstChild) {
-    imageContainer.removeChild(imageContainer.firstChild);
+function createImages() {
+  for (let i = 0; i < imagesArray.length; i++) {
+    // create image
+    let newImage = document.createElement('img');
+    newImage.src = imagesArray[i];
+    newImage.style.width = "200px";
+    newImage.id = `image-${i}`;
+    newImage.classList.add('hidden');
+    imageContainer.appendChild(newImage);
   }
+  // clear image container
+  // while (imageContainer.firstChild) {
+  //   imageContainer.removeChild(imageContainer.firstChild);
   // put new image in container
-  imageContainer.appendChild(newImage);
 
+}
+
+// FUNCTION TO SHOW IMAGE
+const showImage = function(num) {
+  for (let i = 0; i < imagesArray.length; i++) {
+  const image = document.getElementById(`image-${i}`);
+    if (num === i) {
+      image.classList.add('shown');
+      image.classList.remove('hidden');
+    } else { 
+      image.classList.add('hidden');
+      image.classList.remove('shown');
+    }
+  }
   // style dots
   for (let i = 0; i < imagesArray.length; i++) {
     const dot = document.getElementById(`dot-${i}`);
@@ -50,16 +66,17 @@ const createDots = function(){
     // why didn't this work?
     // dotP.addEventListener("click", displayImage(i));
     dotP.addEventListener('click',function(){
-      displayImage(i);
+      showImage(i);
     });
   }
 }
 
 // WHEN PAGE LOADS SHOW FIRST IMAGE IN ARRAY
 window.onload = () => {
+  createImages();
   createDots();
-  displayImage(0);
-  cycleImages();
+  showImage(0);
+  // cycleImages();
 };
 
 
@@ -68,7 +85,7 @@ window.onload = () => {
 
 function cycleImages() {
   for (let i = 0; i < imagesArray.length; i++) {
-    setTimeout(() => {displayImage(currentImage);}, 3000);
+    setTimeout(() => {showImage(currentImage);}, 3000);
     currentImage = currentImage + 1;
     if (currentImage === imagesArray.length) {
       currentImage = 0;
@@ -85,7 +102,7 @@ rightArrow.addEventListener('click', function() {
     currentImage = 0;
   }
   console.log(`imagesArray[currentImage] is ${imagesArray[currentImage]}`);
-  displayImage(currentImage);
+  showImage(currentImage);
 })
 
 // LEFT ARROW
@@ -97,5 +114,5 @@ leftArrow.addEventListener('click', function() {
     currentImage = imagesArray.length - 1;
   }
   console.log(`imagesArray[currentImage] is ${imagesArray[currentImage]}`);
-  displayImage(currentImage);
+  showImage(currentImage);
 })
