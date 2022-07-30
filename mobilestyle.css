@@ -1,0 +1,126 @@
+body {
+  display: grid;
+  grid-template-rows: 40px auto 20px;
+  height: 100vh;
+  justify-content: center;
+  justify-items: center;
+}
+
+h1 {
+  padding: 0px;
+  margin: 0px;
+}
+
+.header {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  grid-row: 1 / 2;
+  align-content: center;
+}
+
+.slideshowcontainer {
+  grid-row: 2 / 3;
+  display: grid;
+  grid-template-columns: 40px auto 40px;
+  grid-template-rows: 40px 300px 40px;
+  width: 600px;
+}
+
+.scgriditem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.slideshowheader {
+  grid-row: 1 / 2;
+  grid-column: 1 / 4;
+  background-color: rgb(241, 242, 180);
+  padding: 0px;
+  margin: 0px;
+}
+
+.imagecontainer {
+  background-color:rgb(184, 234, 184);
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
+  position: relative;
+  width: 200px;
+}
+
+.arrowcontainer {
+  font-family: arial;
+}
+
+.leftarrowcontainer {
+  grid-row: 2 / 3;
+  grid-column: 1 / 2;
+  background-color:rgb(147, 147, 238);
+}
+
+.rightarrowcontainer {
+  grid-row: 2 / 3;
+  grid-column: 3 / 4;
+  background-color: rgb(232, 179, 188);
+}
+
+.imgarrow, .dot, .dotnow {
+  cursor: pointer; 
+}
+
+#rightarrow {
+  background-color: rgb(237, 210, 215);
+}
+
+#rightarrow:hover, #leftarrow:hover {
+  background-color:rgb(184, 234, 184);
+}
+
+#leftarrow {
+  background-color:rgb(172, 172, 234);
+}
+
+.carouseldots {
+  grid-row: 3 / 4;
+  grid-column: 1 / 4;
+  background-color: rgb(219, 124, 219);
+  display: flex;
+  flex-direction: row;
+}
+
+.dot {
+  color: black;
+  padding: 5px;
+}
+
+.dotnow {
+  color: rgb(241, 179, 180);
+  padding: 5px;
+}
+
+.mobilemenu {
+  grid-row: 3 / 4;
+  display: grid;
+  grid-template-columns: repeat(4, 50px);
+  grid-template-rows: 1fr 1fr;
+  justify-items: center;
+}
+
+.griditem {
+  align-content: center;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.shown {
+  opacity: 1;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+img {
+  position: absolute;
+}
