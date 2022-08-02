@@ -16,7 +16,7 @@ function createImages() {
     // create image
     let newImage = document.createElement('img');
     newImage.src = imagesArray[i];
-    newImage.style.width = "200px";
+    newImage.style.width = "400px";
     newImage.id = `image-${i}`;
     newImage.classList.add('hidden');
     imageContainer.appendChild(newImage);
@@ -76,10 +76,10 @@ window.onload = () => {
   createImages();
   createDots();
   showImage(0);
-  setInterval(cycleImages, 3000)
+  setInterval(cycleImages, 5000)
 };
 
-
+// CYCLE IMAGES
 function cycleImages() {
   if (currentImage === imagesArray.length) {
     currentImage = 0;
@@ -110,4 +110,29 @@ leftArrow.addEventListener('click', function() {
   }
   console.log(`imagesArray[currentImage] is ${imagesArray[currentImage]}`);
   showImage(currentImage);
+})
+
+
+// DROP DOWN MENU
+const toggleClass = function(element, className) {
+  element.classList.toggle(className);
+}
+
+const removeClass = function(element, className) {
+    if (element.classList.contains(className)) {
+    element.classList.remove(className);
+  }
+}
+
+document.querySelectorAll('.dropdownbutton').forEach(item => {
+  item.addEventListener('click', event => {
+    const id = event.target.id;
+    const dropdown = document.getElementById(`${id}-dropdown`);
+    toggleClass(dropdown,'hidden')
+  })
+  item.addEventListener('mouseover', event => {
+    const id = event.target.id;
+    const dropdown = document.getElementById(`${id}-dropdown`);
+    removeClass(dropdown,'hidden')
+  })
 })
