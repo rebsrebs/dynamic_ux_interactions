@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8">
     <title>My First Webpage</title>
     <link rel="stylesheet" href="style.css">
   </head>
+
   <body>
+
     <nav class="nav">
-      <button class="button">Home</button>
+      <button class="button nodropdownbutton">Home</button>
       <!-- dropdown container -->
       <div class="dropdowncontainer">
         <button class="dropdownbutton" id="categories">Categories</button>
@@ -27,11 +30,46 @@
         </div>
       </div>
     </nav>
-    <div class="content">
-      Here is the content of the page.
+
+    <header class="header griditem">
+      <h1>Header Header Header</h1>
+    </header>
+
+    <div class="slideshowcontainer griditem">
+      <h3 class="slideshowheader scgriditem">Slideshow</h3>
+      <div class="arrowcontainer scgriditem leftarrowcontainer" >
+        <img src="./img/chevron-left.svg" class="imgarrow" id="leftarrow" alt="left arrow">
+      </div>
+      <div class="imagecontainer scgriditem" id="imagecontainer">
+        <!-- <p>Image placeholder</p> -->
+      </div>
+      <div class="arrowcontainer scgriditem rightarrowcontainer">
+        <img src="./img/chevron-right.svg"  class="imgarrow" id="rightarrow" alt="right arrow">
+      </div>
+
+      <div class="carouseldots scgriditem" id = "carouseldots">
+        <!-- <p class="dot">•</p>
+        <p class="dot">•</p>
+        <p class="dot">•</p>
+        <p class="dot">•</p> -->
+      </div>
     </div>
-  </body>
-</html>
-<script src="script.js"></script>
 
+    <nav class="mobilemenu griditem">
+      <div class="icon mmgriditem">
+        <img src="./img/home.svg" alt="">
+      </div>
+      <div class="icon mmgriditem">
+        <img src="./img/search.svg" alt="">
+      </div>
+      <div class="icon mmgriditem">
+        <img src="./img/bookmark.svg" alt="">
+      </div>
+      <div class="icon mmgriditem">
+        <img src="./img/user.svg" alt="">
+      </div>
+    </nav>
 
+    </body>
+  </html>
+  <script src="script.js"></script>
