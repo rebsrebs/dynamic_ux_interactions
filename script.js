@@ -93,7 +93,7 @@ rightArrow.addEventListener('click', function() {
   console.log(`Left arrow was clicked and currentImage is ${currentImage}`);
   currentImage = currentImage + 1;
   console.log(`Now currentImage is ${currentImage}`);
-  if (currentImage === imagesArray.length) {
+  if (currentImage >= imagesArray.length) {
     currentImage = 0;
   }
   console.log(`imagesArray[currentImage] is ${imagesArray[currentImage]}`);
@@ -111,7 +111,6 @@ leftArrow.addEventListener('click', function() {
   console.log(`imagesArray[currentImage] is ${imagesArray[currentImage]}`);
   showImage(currentImage);
 })
-
 
 // DROP DOWN MENU
 const toggleClass = function(element, className) {
@@ -133,6 +132,12 @@ document.querySelectorAll('.dropdownbutton').forEach(item => {
   item.addEventListener('mouseover', event => {
     const id = event.target.id;
     const dropdown = document.getElementById(`${id}-dropdown`);
-    removeClass(dropdown,'hidden')
+    toggleClass(dropdown,'hidden')
+  })
+  // but when I add the below, it goes away when i bring mouse down over dropdown menu, so I need to make drop down items be insidethe event.
+  item.addEventListener('mouseout', event => {
+    const id = event.target.id;
+    const dropdown = document.getElementById(`${id}-dropdown`);
+    toggleClass(dropdown,'hidden')
   })
 })
