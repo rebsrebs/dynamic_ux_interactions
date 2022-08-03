@@ -18,14 +18,9 @@ function createImages() {
     newImage.src = imagesArray[i];
     newImage.style.width = "400px";
     newImage.id = `image-${i}`;
-    newImage.classList.add('hidden');
+    newImage.classList.add('notshown');
     imageContainer.appendChild(newImage);
   }
-  // clear image container
-  // while (imageContainer.firstChild) {
-  //   imageContainer.removeChild(imageContainer.firstChild);
-  // put new image in container
-
 }
 
 // FUNCTION TO SHOW IMAGE
@@ -34,9 +29,9 @@ const showImage = function(num) {
   const image = document.getElementById(`image-${i}`);
     if (num === i) {
       image.classList.add('shown');
-      image.classList.remove('hidden');
+      image.classList.remove('notshown');
     } else { 
-      image.classList.add('hidden');
+      image.classList.add('notshown');
       image.classList.remove('shown');
     }
   }
