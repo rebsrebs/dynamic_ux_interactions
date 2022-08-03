@@ -170,6 +170,7 @@ button {
   /* background-color: rgb(219, 124, 219); */
   display: flex;
   flex-direction: row;
+  z-index: 100;
 }
 
 .dot {
@@ -186,8 +187,10 @@ button {
   grid-row: 4 / 5;
   display: grid;
   grid-template-columns: repeat(4, 50px);
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr;
   justify-items: center;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
 }
 
 .griditem {
@@ -214,5 +217,5 @@ img {
   margin: 0px;
   display: flex;
   justify-content: center;
-  align-content: center;
+  align-items: center;
 }
