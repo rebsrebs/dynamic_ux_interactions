@@ -2,15 +2,17 @@ const leftArrow = document.getElementById('leftarrow');
 const rightArrow = document.getElementById('rightarrow');
 const imageContainer = document.getElementById('imagecontainer');
 
+// Define image sources
 const radishes = './img/pexels-lumn-191043.jpg';
 const apple = './img/pexels-mali-maeder-102104.jpg';
 const peppers = './img/pexels-rafel-al-saadi-128536.jpg';
 const beans = './img/pexels-polina-tankilevitch-4109748.jpg';
 
+// Define image array
 let imagesArray = [radishes, apple, peppers, beans];
 let currentImage = 0;
 
-// FUNCTION TO SHOW IMAGE IN CONTAINER
+// FUNCTION TO CREATE IMAGE IN CONTAINER
 function createImages() {
   for (let i = 0; i < imagesArray.length; i++) {
     // create image
@@ -118,21 +120,24 @@ const removeClass = function(element, className) {
   }
 }
 
-document.querySelectorAll('.dropdownbutton').forEach(item => {
+document.querySelectorAll('.dropdowncontainer').forEach(item => {
   item.addEventListener('click', event => {
     const id = event.target.id;
     const dropdown = document.getElementById(`${id}-dropdown`);
     toggleClass(dropdown,'hidden')
+    toggleClass(dropdown,'block')
+
   })
   item.addEventListener('mouseover', event => {
     const id = event.target.id;
     const dropdown = document.getElementById(`${id}-dropdown`);
-    toggleClass(dropdown,'hidden')
+    removeClass(dropdown,'hidden')
   })
-  // but when I add the below, it goes away when i bring mouse down over dropdown menu, so I need to make drop down items be insidethe event.
-  item.addEventListener('mouseout', event => {
-    const id = event.target.id;
-    const dropdown = document.getElementById(`${id}-dropdown`);
-    toggleClass(dropdown,'hidden')
-  })
+
+  // item.addEventListener('mouseout', event => {
+  //   const id = event.target.id;
+  //   const dropdown = document.getElementById(`${id}-dropdown`);
+  //   toggleClass(dropdown,'hidden')
+  //   toggleClass(dropdown,'block')
+  // })
 })
