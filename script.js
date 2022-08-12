@@ -120,24 +120,45 @@ const removeClass = function(element, className) {
   }
 }
 
-document.querySelectorAll('.dropdowncontainer').forEach(item => {
+// Toggle hiding of menus nested in site-header nav
+document.querySelectorAll('[data-dropdown]').forEach(item => {
   item.addEventListener('click', event => {
-    const id = event.target.id;
-    const dropdown = document.getElementById(`${id}-dropdown`);
-    toggleClass(dropdown,'hidden')
-    toggleClass(dropdown,'block')
-
+    let id = event.target.getAttribute('data-dropdown');
+      if (!id || id.length === 0) {
+          return false;
+      }
+    let dropdown = document.getElementById(id)
+    if (dropdown) {
+        toggleClass(dropdown,'hidden')
+        // toggleAriaAttributes(event.target)
+    }
   })
+
   item.addEventListener('mouseover', event => {
-    const id = event.target.id;
-    const dropdown = document.getElementById(`${id}-dropdown`);
-    removeClass(dropdown,'hidden')
+    let id = event.target.getAttribute('data-dropdown');
+      if (!id || id.length === 0) {
+          return false;
+      }
+    let dropdown = document.getElementById(id)
+    if (dropdown) {
+        toggleClass(dropdown,'hidden')
+        // toggleAriaAttributes(event.target)
+    }
   })
+})
 
-  // item.addEventListener('mouseout', event => {
-  //   const id = event.target.id;
-  //   const dropdown = document.getElementById(`${id}-dropdown`);
-  //   toggleClass(dropdown,'hidden')
-  //   toggleClass(dropdown,'block')
-  // })
+document.querySelectorAll('.dropdown').forEach(item => {
+  item.addEventListener('mouseout', event => {
+    console.log('i left the dropdown');
+    let id = event.currentTarget.id;
+    console.log(id);
+      if (!id || id.length === 0) {
+          return false;
+      }
+    let dropdown = document.getElementById(id)
+    if (dropdown) {
+        toggleClass(dropdown,'hidden')
+        // toggleAriaAttributes(event.target)
+    }
+  })
 })

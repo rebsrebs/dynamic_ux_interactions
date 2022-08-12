@@ -41,6 +41,7 @@ button {
 
 .dropdowncontainer {
   position: relative;
+  z-index: 1;
 }
 
 .dropdown {
@@ -77,6 +78,10 @@ button {
 
 .hidden {
   display: none;
+}
+
+.nothidden {
+  display: block;
 }
 
 .red {
@@ -219,3 +224,4 @@ img {
   justify-content: center;
   align-items: center;
 }
+
