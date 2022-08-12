@@ -110,7 +110,7 @@ button {
   grid-row: 3 / 4;
   display: grid;
   grid-template-columns: 40px auto 40px;
-  grid-template-rows: 40px 300px 40px;
+  grid-template-rows: 40px 375px 40px;
   width: 600px;
 }
 
